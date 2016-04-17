@@ -1,1 +1,3 @@
 para poder ver la informacion sobre la araña que estoy usando pueden acceder al repositorio donde se localiza: https://github.com/postmodern/spidr
+
+este lo podriamos usar para control del lenguaje: https://github.com/stiang/textmood
