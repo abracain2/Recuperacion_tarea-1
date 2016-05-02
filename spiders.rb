@@ -8,7 +8,7 @@ class Spiders
     end
     
     def spiders
-        Spidr.site('https://www.ruby-lang.org/') do |spider|
+        Spidr.host('ucr.ac.cr') do |spider|
             spider.every_html_page do |page|
                 puts page.title
             end
