@@ -4,6 +4,7 @@ class Normalize
     require 'matrix'
     require 'tf-idf-similarity'
     require 'unicode_utils'
+    require 'active_support/inflector'
     
   
     def initialize
@@ -11,6 +12,8 @@ class Normalize
     end
     
     def normalize_text(document)
+        
+        
         
         # se guarda los tokens sin los top words
         tokens_without_topwords = UnicodeUtils.each_word(document).to_a - ['la', 'el', 'ella', 'con', 'los', 'las']
@@ -22,10 +25,14 @@ class Normalize
         tokens_without_topwords.each do |token|
             unless token[/\A\d+\z/]
                 
+                term = token
                 
+                term = ActiveSupport::Inflector.transliterate(term)
+                
+                term = ActiveSupport::Inflector.singularize(term)  
                 
                 # Elimina los signos de puntuacion
-                terms[token.gsub(/\p{Punct}/, '')] += 1
+                terms[term.gsub(/\p{Punct}/, '')] += 1
                 size += 1
                 
             end

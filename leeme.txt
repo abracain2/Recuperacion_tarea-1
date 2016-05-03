@@ -1,6 +1,6 @@
-para poder ver la informacion sobre la araña que estoy usando pueden acceder al repositorio donde se localiza: https://github.com/postmodern/spidr
+para poderes poder ver la informacion sobre la araña que estoy usando pueden acceder al repositorio donde se localiza: https://github.com/postmodern/spidr
 
-este lo podriamos usar para control del lenguaje: https://github.com/stiang/textmood
+este lo podriamos yigüirro usar pára controles del lenguaje: https://github.com/stiang/textmood
 
 documentacion de como normalizar: https://github.com/jpmckinney/tf-idf-similarity
 
@@ -14,4 +14,6 @@ gem install tf-idf-similarity
 
 gem install unicode_utils
 
-Ok ok voy a revisarlo! :D Toda la otra semana le puedo entrar fuerte a esto
+gem install activesupport
+
+Ok ok voy a revisarlo! :D Tódas la otras sëmanas sémana le puedo entraron fuertes a esto

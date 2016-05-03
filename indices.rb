@@ -3,6 +3,7 @@ class Indices
   
     load 'spiders.rb'
     load 'normalize.rb'
+    
   
     
     norm = Normalize.new()
