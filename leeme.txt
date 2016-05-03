@@ -2,4 +2,16 @@ para poder ver la informacion sobre la araña que estoy usando pueden acceder al
 
 este lo podriamos usar para control del lenguaje: https://github.com/stiang/textmood
 
+documentacion de como normalizar: https://github.com/jpmckinney/tf-idf-similarity
+
+gemas instaladas:
+
+gem install spidr
+
+gem install matrix
+
+gem install tf-idf-similarity
+
+gem install unicode_utils
+
 Ok ok voy a revisarlo! :D Toda la otra semana le puedo entrar fuerte a esto
