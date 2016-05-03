@@ -27,9 +27,14 @@ class Normalize
                 
                 term = token
                 
+                # quita todos los acentos
                 term = ActiveSupport::Inflector.transliterate(term)
                 
+                # este hace que los tokens se hagan en singular
                 term = ActiveSupport::Inflector.singularize(term)  
+                
+                # pone todas las letras en minuscula
+                term = ActiveSupport::Inflector.underscore(term) 
                 
                 # Elimina los signos de puntuacion
                 terms[term.gsub(/\p{Punct}/, '')] += 1

@@ -17,3 +17,5 @@ gem install unicode_utils
 gem install activesupport
 
 Ok ok voy a revisarlo! :D Tódas la otras sëmanas sémana le puedo entraron fuertes a esto
+
+HOLA COMO ESTA ESTO ESTA EN MAYUSCULA
