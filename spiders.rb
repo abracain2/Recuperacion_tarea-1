@@ -8,9 +8,9 @@ class Spiders
     end
     
     def spiders
-        Spidr.host('ucr.ac.cr') do |spider|
+        Spidr.host('www.ucr.ac.cr') do |spider|
             spider.every_html_page do |page|
-                puts page.title
+                puts page.body
             end
         end
     end
