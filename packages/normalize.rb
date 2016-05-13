@@ -40,6 +40,8 @@ class Normalize
         
         puts :terms => terms
         
+        return terms
+        
     end
     
     def normalize_word(word)
@@ -63,6 +65,8 @@ class Normalize
         
         # se guarda los tokens sin los top words
         tokens_without_topwords = UnicodeUtils.each_word(document).to_a - top_words
+        
+        return tokens_without_topwords
         
     end
     

@@ -1,6 +1,6 @@
 require "test/unit"
 
-require_relative "../normalize"
+require_relative "../packages/normalize"
 
 class TestSimpleNumber < Test::Unit::TestCase
 
