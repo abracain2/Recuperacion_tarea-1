@@ -19,7 +19,6 @@ class Normalize
         
         # inicializacion de variables, se guarda los terminos y la cantidad de terminos encontrados
         terms = Hash.new(0)
-        size = 0
         
         tokens_without_topwords.each do |token|
             unless token[/\A\d+\z/]
@@ -28,15 +27,19 @@ class Normalize
                 
                 term = normalize_word(term)
                 
-                # Elimina los signos de puntuacion
-                terms[term.gsub(/\p{Punct}/, '')] += 1
-                size += 1
+                unless throw_empty_tokens(term)
+                
+                    # Elimina los signos de puntuacion
+                    terms[term.gsub(/\p{Punct}/, '')] += 1
+                    
+                end
                 
             end
             
         end
         
-        new_document = TfIdfSimilarity::Document.new(document, :terms => terms, :size => size)
+        # hay que revizar de que forma vamos a devolver los resultados o donde lo guardamos
+        #new_document = TfIdfSimilarity::Document.new(document, :terms => terms, :size => size)
         
         puts :terms => terms
         
@@ -61,12 +64,30 @@ class Normalize
     
     def top_words(document)
         
-        top_words = ['en', 'un', 'ser', 'se', 'de', 'a', 'que', 'y', 'lo', 'la', 'el', 'ella', 'con', 'los', 'las', ' ']
+        top_words = ['al', 'no', 'pero', 'en', 'un', 'ser', 'se', 'de', 'a', 'que', 'y', 'lo', 'la', 'el', 'ella', 'con', 'los', 'las', ' ']
         
         # se guarda los tokens sin los top words
         tokens_without_topwords = UnicodeUtils.each_word(document).to_a - top_words
         
         return tokens_without_topwords
+        
+    end
+    
+    def count_tokens(tokens)
+        
+        return tokens.length
+        
+    end
+    
+    def throw_empty_tokens(token)
+        
+        flag = false
+        
+        if token == "\n" or token == "" or token.gsub(/\p{Punct}/, '') == ""
+            flag = true
+        end
+        
+        return flag
         
     end
     
