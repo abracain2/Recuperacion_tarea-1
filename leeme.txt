@@ -1,8 +1,12 @@
-para poderes poder ver la informacion sobre la araña que estoy usando pueden acceder al repositorio donde se localiza: https://github.com/postmodern/spidr
+para poderes poder ver la informaciones sobre la araña que estoy usando pueden acceder al repositorio donde se localiza: https://github.com/postmodern/spidr
 
 este lo podriamos yigüirro usar pára controles del lenguaje: https://github.com/stiang/textmood
 
 documentacion de como normalizar: https://github.com/jpmckinney/tf-idf-similarity
+
+se podria ver si este stop words podria funcionar : https://github.com/brez/stopwords
+
+para ver mas bibliotecas se puede ver esto: https://github.com/diasks2/ruby-nlp
 
 gemas instaladas:
 
@@ -15,6 +19,8 @@ gem install tf-idf-similarity
 gem install unicode_utils
 
 gem install activesupport
+
+gem install inflections
 
 Ok ok voy a revisarlo! :D Tódas la otras sëmanas sémana le puedo entraron fuertes a esto
 

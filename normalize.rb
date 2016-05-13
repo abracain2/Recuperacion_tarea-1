@@ -5,6 +5,7 @@ class Normalize
     require 'tf-idf-similarity'
     require 'unicode_utils'
     require 'active_support/inflector'
+    require 'inflections'
     
   
     def initialize
@@ -13,10 +14,10 @@ class Normalize
     
     def normalize_text(document)
         
-        
+        top_words = ['la', 'el', 'ella', 'con', 'los', 'las', ' ']
         
         # se guarda los tokens sin los top words
-        tokens_without_topwords = UnicodeUtils.each_word(document).to_a - ['la', 'el', 'ella', 'con', 'los', 'las']
+        tokens_without_topwords = top_words(document)
         
         # inicializacion de variables, se guarda los terminos y la cantidad de terminos encontrados
         terms = Hash.new(0)
@@ -27,14 +28,7 @@ class Normalize
                 
                 term = token
                 
-                # quita todos los acentos
-                term = ActiveSupport::Inflector.transliterate(term)
-                
-                # este hace que los tokens se hagan en singular
-                term = ActiveSupport::Inflector.singularize(term)  
-                
-                # pone todas las letras en minuscula
-                term = ActiveSupport::Inflector.underscore(term) 
+                term = normalize_word(term)
                 
                 # Elimina los signos de puntuacion
                 terms[term.gsub(/\p{Punct}/, '')] += 1
@@ -47,6 +41,30 @@ class Normalize
         new_document = TfIdfSimilarity::Document.new(document, :terms => terms, :size => size)
         
         puts :terms => terms
+        
+    end
+    
+    def normalize_word(word)
+        
+        # quita todos los acentos
+        word = ActiveSupport::Inflector.transliterate(word)
+        
+        # este hace que los tokens se hagan en singular
+        word = ActiveSupport::Inflector.singularize(word, :es)  
+        
+        # pone todas las letras en minuscula
+        word = ActiveSupport::Inflector.underscore(word) 
+        
+        return word
+        
+    end
+    
+    def top_words(document)
+        
+        top_words = ['la', 'el', 'ella', 'con', 'los', 'las', ' ']
+        
+        # se guarda los tokens sin los top words
+        tokens_without_topwords = UnicodeUtils.each_word(document).to_a - top_words
         
     end
     
