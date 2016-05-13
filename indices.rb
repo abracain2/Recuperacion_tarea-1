@@ -1,8 +1,8 @@
 class Indices
     VERSION = "0.0.1"
   
-    require_relative 'spiders'
-    require_relative 'normalize'
+    require_relative 'packages/spiders'
+    require_relative 'packages/normalize'
     
   
     

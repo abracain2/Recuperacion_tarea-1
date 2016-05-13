@@ -8,6 +8,8 @@ se podria ver si este stop words podria funcionar : https://github.com/brez/stop
 
 para ver mas bibliotecas se puede ver esto: https://github.com/diasks2/ruby-nlp
 
+ver cuales son los top words en español: http://www.vistawide.com/spanish/top_100_spanish_words.htm
+
 gemas instaladas:
 
 gem install spidr
