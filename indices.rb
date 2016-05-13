@@ -1,8 +1,8 @@
 class Indices
     VERSION = "0.0.1"
   
-    load 'spiders.rb'
-    load 'normalize.rb'
+    require_relative 'spiders'
+    require_relative 'normalize'
     
   
     

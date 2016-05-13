@@ -14,8 +14,6 @@ class Normalize
     
     def normalize_text(document)
         
-        top_words = ['la', 'el', 'ella', 'con', 'los', 'las', ' ']
-        
         # se guarda los tokens sin los top words
         tokens_without_topwords = top_words(document)
         
