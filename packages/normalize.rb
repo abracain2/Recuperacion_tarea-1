@@ -83,6 +83,7 @@ class Normalize
         
         flag = false
         
+        # elimina los posibles espacios vacios que se agregan en la lista
         if token == "\n" or token == "" or token.gsub(/\p{Punct}/, '') == ""
             flag = true
         end

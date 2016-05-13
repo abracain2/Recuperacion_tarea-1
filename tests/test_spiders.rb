@@ -6,6 +6,12 @@ require_relative "../packages/spiders"
 
 class TestSimpleNumber < Test::Unit::TestCase
 
+    def setup
+        
+        @norm = Spiders.new()
+        
+    end
+    
     def test_spider
         
     end
