@@ -3,3 +3,5 @@ para poder ver la informacion sobre la araña que estoy usando pueden acceder al
 este lo podriamos usar para control del lenguaje: https://github.com/stiang/textmood
 
 Prueba de un push
+
+otra gema open-uri

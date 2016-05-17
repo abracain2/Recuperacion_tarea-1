@@ -1,6 +1,5 @@
 class Spiders
     VERSION = "0.0.1"
-  
     require 'spidr'
   
     def initialize
@@ -8,9 +7,9 @@ class Spiders
     end
     
     def spiders
-        Spidr.host('www.ucr.ac.cr') do |spider|
+        Spidr.site('www.ucr.ac.cr') do |spider|
             spider.every_html_page do |page|
-                puts page.body
+                puts page.doc
             end
         end
     end

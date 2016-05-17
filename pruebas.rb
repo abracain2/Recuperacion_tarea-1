@@ -1,11 +1,15 @@
 require 'spidr'
+require 'open-uri'
 
-out_file = File.new("out.txt", "w")
+wiki1 = File.new("body.txt", "w")
+wiki2 = File.new("links.txt","w")
 
-# Prueba de que la gema funciona.
 Spidr.host('www.ucr.ac.cr') do |spider|
   spider.every_html_page do |page|
-    out_file.puts(page.body)
+      wiki1.puts(page.doc)
+      spider.every_url {|url| wiki2.puts(url)}
+      end
   end
-end
-out_file.close
+ 
+wiki1.close
+wiki2.close
