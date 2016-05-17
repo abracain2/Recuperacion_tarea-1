@@ -41,8 +41,6 @@ class Normalize
         # hay que revizar de que forma vamos a devolver los resultados o donde lo guardamos
         #new_document = TfIdfSimilarity::Document.new(document, :terms => terms, :size => size)
         
-        puts :terms => terms
-        
         return terms
         
     end

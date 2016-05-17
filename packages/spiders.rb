@@ -2,8 +2,7 @@ class Spiders
     VERSION = "0.0.1"
   
     require 'spidr'
-    
-  
+
     def initialize
         
     end
