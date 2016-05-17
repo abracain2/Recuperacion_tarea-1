@@ -13,7 +13,7 @@ class Normalize
     end
     
     def normalize_text(document)
-        
+    
         # se guarda los tokens sin los top words
         tokens_without_topwords = top_words(document)
         
@@ -62,7 +62,7 @@ class Normalize
     
     def top_words(document)
         
-        top_words = ['al', 'no', 'pero', 'en', 'un', 'ser', 'se', 'de', 'a', 'que', 'y', 'lo', 'la', 'el', 'ella', 'con', 'los', 'las', ' ']
+        top_words = ['al', 'no', 'pero', 'en', 'un', 'ser', 'se', 'de', 'a', 'que', 'y', 'lo', 'la', 'el', 'ella', 'con', 'los', 'las', '|', ' ']
         
         # se guarda los tokens sin los top words
         tokens_without_topwords = UnicodeUtils.each_word(document).to_a - top_words

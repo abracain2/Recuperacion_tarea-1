@@ -32,8 +32,7 @@ class Indices
     #spi = Spiders.new()
   
     #spi.spiders
-    hash = norm.normalize_text(File.read("leeme.txt"))
-    
+    hash = norm.normalize_text(File.read("sinRepetidosTitulos.txt"))
     hash.each do |word, count|
         sub_indices = ind.union_hash(indice_terminos[word], {id=>count})
         indice_terminos[word] = sub_indices
