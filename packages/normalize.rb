@@ -18,7 +18,8 @@ class Normalize
         tokens_without_topwords = top_words(document)
         
         # inicializacion de variables, se guarda los terminos y la cantidad de terminos encontrados
-        terms = Hash.new(0)
+        term_counts = Hash.new(0)
+        size = 0
         
         tokens_without_topwords.each do |token|
             unless token[/\A\d+\z/]
@@ -30,7 +31,8 @@ class Normalize
                 unless throw_empty_tokens(term)
                 
                     # Elimina los signos de puntuacion
-                    terms[term.gsub(/\p{Punct}/, '')] += 1
+                    term_counts[term.gsub(/\p{Punct}/, '')] += 1
+                    size += 1
                     
                 end
                 
@@ -39,9 +41,9 @@ class Normalize
         end
         
         # hay que revizar de que forma vamos a devolver los resultados o donde lo guardamos
-        #new_document = TfIdfSimilarity::Document.new(document, :terms => terms, :size => size)
+        new_document = TfIdfSimilarity::Document.new(document, :term_counts => term_counts, :size => size)
         
-        return terms
+        return new_document
         
     end
     

@@ -15,9 +15,9 @@ class TestSimpleNumber < Test::Unit::TestCase
     def test_normalize_text
         
         document = "esta es la historia de un pajaro que volaba, pero se convirtio en gallina, no volaba pero seguia siendo un pajaro al menos"
-        assert_kind_of( Hash, @norm.normalize_text(document), "me devuelve el tipo correcto de dato" )
+        assert_kind_of( TfIdfSimilarity::Document, @norm.normalize_text(document), "me devuelve el tipo correcto de dato" )
         assert_not_nil( @norm.normalize_text(document), "No me lo devuelve nulo" )
-        assert_equal( ["esta"=>1, "historia"=>1, "pajaro"=>2, "volaba"=>2, "convirtio"=>1, "gallina"=>1, "siendo"=>1, "seguia"=>1, "meno"=>1], [@norm.normalize_text(document)] )
+        assert_equal( ["esta"=>1, "historia"=>1, "pajaro"=>2, "volaba"=>2, "convirtio"=>1, "gallina"=>1, "siendo"=>1, "seguia"=>1, "meno"=>1], [(@norm.normalize_text(document)).term_counts] )
         
     end
     
@@ -58,8 +58,8 @@ class TestSimpleNumber < Test::Unit::TestCase
     def test_count_tokens
         
         # falta ver como revizamos los hash para ver si devuelve lo que nosotros queremos
-        assert_equal( 0, @norm.count_tokens(@norm.normalize_text("en un ser se de a que y")) )
-        assert_equal( 7, @norm.count_tokens(@norm.normalize_text("el final mas perfecto para un comienzo medio perdido")) )
+        assert_equal( 0, @norm.count_tokens((@norm.normalize_text("en un ser se de a que y")).term_counts) )
+        assert_equal( 7, @norm.count_tokens((@norm.normalize_text("el final mas perfecto para un comienzo medio perdido")).term_counts) )
         
     end
     
