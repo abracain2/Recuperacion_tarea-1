@@ -47,6 +47,38 @@ class Normalize
         
     end
     
+    def normalize_text_consult(text)
+        
+        # se guarda los tokens sin los top words
+        tokens_without_topwords = top_words(text)
+        
+        # inicializacion de variables, se guarda los terminos y la cantidad de terminos encontrados
+        text_ind = Array.new
+        ind = 0
+        
+        tokens_without_topwords.each do |token|
+            unless token[/\A\d+\z/]
+                
+                term = token
+                
+                term = normalize_word(term)
+                
+                unless throw_empty_tokens(term)
+                
+                    # Elimina los signos de puntuacion
+                    text_ind.push(term)
+                    ind += 1
+                    
+                end
+                
+            end
+            
+        end
+        
+        return text_ind
+        
+    end
+    
     def normalize_word(word)
         
         # quita todos los acentos

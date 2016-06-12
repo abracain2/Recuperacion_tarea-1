@@ -27,3 +27,5 @@ gem install unicode_utils
 gem install activesupport
 
 gem install inflections
+
+gem install array

@@ -1,0 +1,17 @@
+Pra lograr instalar rails se tiene que realizar los siguientes comandos;
+
+Intalacion de la gema de Rails:
+
+gem install rails
+
+Para crear un nuevo api de rails se corre el siguiente comando(esperar y tener paciencia dado a que tiende a durar un poco de tiempo, xxxx el nombre de la api):
+
+rails new xxxx
+
+Para conseguir un espacio o url para lograr ver los resultados(con esto se logra tener una ip en el servidor, recordar hacer cd en donde se instalo el rails):
+
+cd xxxx; rails s -p $PORT -b $IP
+
+en otros casos se usa este, en caso de que no sea en c9:
+
+cd xxxx; rails server
