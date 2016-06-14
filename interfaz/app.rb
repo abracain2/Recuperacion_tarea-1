@@ -2,11 +2,12 @@
 require 'rubygems'
 require 'sinatra'
 
-get '/form' do
-  erb :form
+set :views, "views"
+
+get '/' do
+    erb :hello_form
 end
 
-<form action="/form" method="post">
-  <input type="text" name="message">
-  <input type="submit">
-</form>
+post '/' do
+    return "#{params['buscar']}"
+end
