@@ -29,3 +29,12 @@ gem install activesupport
 gem install inflections
 
 gem install array
+
+gem install dinosaurus
+
+Correr Sinatra:
+ruby app.rb -p $PORT -o $IP'
+
+para mas informacion de la api de sinonimos leer aqui:
+
+https://github.com/dtuite/dinosaurus

@@ -148,8 +148,29 @@ class Structures
                 resultado[id] = count
             end
         end
-        hash2.each do |id, count|
-            resultado[id] = count
+        if hash2 != 0
+            hash2.each do |id, count|
+                resultado[id] = count
+            end
+        end
+        
+        return resultado
+        
+    end
+    
+    def union_avg_hash(hash1, hash2)
+        
+        resultado = Hash.new(0)
+        
+        if hash1 != 0
+            hash1.each do |id, tf_idf|
+                resultado[id] += tf_idf
+            end
+        end
+        if hash2 != 0
+            hash2.each do |id, tf_idf|
+                resultado[id] += tf_idf
+            end
         end
         
         return resultado

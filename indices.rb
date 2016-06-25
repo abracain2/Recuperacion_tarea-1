@@ -5,30 +5,26 @@ class Indices
     require_relative 'packages/normalize'
     require_relative 'packages/structures'
     
+    def hacer_indices(structure)
     
-    norm = Normalize.new()
-    struct = Structures.new()
-  
-    #spi.spiders
-
-    hash = norm.normalize_text(File.read("texto.txt"))
+        norm = Normalize.new()
+        struct = structure
+      
+        #spi.spiders
+        hash = Hash.new()
+        hash = norm.normalize_text(File.read("../texto.txt"))
+        
+        struct.add_document("texto.txt", hash)
+        
+        hash = norm.normalize_text(File.read("../texto2.txt"))
+        
+        struct.add_document("texto2.txt", hash)
+        
     
-    struct.add_document("texto.txt", hash)
+        hash = norm.normalize_text(File.read("../sinRepetidosTitulos.txt"))
+        struct.add_document("sinRepetidosTitulos.txt", hash)
     
-    hash = norm.normalize_text(File.read("texto2.txt"))
+        return struct
     
-    struct.add_document("texto2.txt", hash)
-    
-
-    hash = norm.normalize_text(File.read("sinRepetidosTitulos.txt"))
-    hash.each do |word, count|
-        sub_indices = ind.union_hash(indice_terminos[word], {id=>count})
-        indice_terminos[word] = sub_indices
     end
-
-
-    puts struct.get_all_terms_counts()
-    puts struct.get_all_terms_tf_idf()
-    
-    puts struct.get_id_url(struct.get_url(0))
 end
